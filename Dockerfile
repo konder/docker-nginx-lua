@@ -46,8 +46,6 @@ RUN wget -O /tmp/nginx-1.7.9.tar.gz http://nginx.org/download/nginx-1.7.9.tar.gz
       make install ) && \
     ln -s /usr/local/lib/libluajit-5.1.so.2 /lib64/libluajit-5.1.so.2 && \
     mkdir -p /var/cache/nginx/client_temp && \ 
-    cp /tmp/hosts /etc/hosts.default && \
-    cp /tmp/nginx.conf /etc/nginx/nginx.conf.default && \
     rm -rf /tmp/*
 
 EXPOSE 80
