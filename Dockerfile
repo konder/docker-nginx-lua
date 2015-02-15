@@ -48,8 +48,13 @@ RUN wget -O /tmp/nginx-1.7.9.tar.gz http://nginx.org/download/nginx-1.7.9.tar.gz
     mkdir -p /var/cache/nginx/client_temp && \ 
     rm -rf /tmp/*
 
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+
+RUN wget https://github.com/jwilder/dockerize/releases/download/v0.0.1/dockerize-linux-amd64-v0.0.1.tar.gz
+RUN tar -C /usr/local/bin -xvzf dockerize-linux-amd64-v0.0.1.tar.gz
+
 EXPOSE 80
 EXPOSE 443
 
-CMD [ "nginx", "-g", "daemon off;" ]
+CMD dockerize -stdout /var/log/nginx/access.log -stderr /var/log/nginx/error.log nginx
 
