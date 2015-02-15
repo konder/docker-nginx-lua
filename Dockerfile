@@ -49,6 +49,7 @@ RUN wget -O /tmp/nginx-1.7.9.tar.gz http://nginx.org/download/nginx-1.7.9.tar.gz
     rm -rf /tmp/*
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+RUN mkdir -p /var/log/nginx; mkdir -p /home/cache/
 
 RUN wget https://github.com/jwilder/dockerize/releases/download/v0.0.1/dockerize-linux-amd64-v0.0.1.tar.gz
 RUN tar -C /usr/local/bin -xvzf dockerize-linux-amd64-v0.0.1.tar.gz
